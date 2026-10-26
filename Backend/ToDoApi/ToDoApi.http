@@ -1,0 +1,74 @@
+
+@TodoApi_HostAddress = https://localhost:7018
+
+### Get all todos
+GET {{TodoApi_HostAddress}}/api/Todos
+Accept: application/json
+
+### Add a todo
+POST https://localhost:7018/api/Todos
+Content-Type: application/json
+
+{
+    "title": "Complete Todo Application",
+    "description": "Finish the assignment",
+    "priority": "High",
+    "category": "Work",
+    "isCompleted": false
+}
+
+
+### Search and filter todos
+GET https://localhost:7018/api/Todos/search?search=Complete&priority=High&category=Work
+Accept: application/json
+
+GET https://localhost:7018/api/Todos/999
+
+### Test missing Todo
+GET https://localhost:7018/api/Todos/999
+Accept: application/json
+
+### Get Todo by ID
+GET https://localhost:7018/api/Todos/1
+Accept: application/json
+
+### Get missing Todo
+GET https://localhost:7018/api/Todos/999
+Accept: application/json
+
+### Create a new Todo
+POST https://localhost:7018/api/Todos
+Content-Type: application/json
+
+{
+  "title": "Prepare React Frontend",
+  "description": "Build the Todo application UI",
+  "priority": "Medium",
+  "category": "Personal",
+  "isCompleted": false
+}
+
+### Verify created Todo
+GET https://localhost:7018/api/Todos
+Accept: application/json
+
+
+### Update Todo
+PUT https://localhost:7018/api/Todos/2
+Content-Type: application/json
+
+{
+  "id": 2,
+  "title": "Prepare React Frontend - Updated",
+  "description": "Build and test the Todo application UI",
+  "priority": "High",
+  "category": "Personal",
+  "isCompleted": false
+}
+
+### Verify updated Todo
+GET https://localhost:7018/api/Todos/2
+Accept: application/json
+
+### Delete Todo
+DELETE https://localhost:7018/api/Todos/2
